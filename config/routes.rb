@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   get    '/about',   to: 'static_pages#about'
   get    '/contact', to: 'static_pages#contact'
   get    '/signup',  to: 'users#new'
+  post   '/signup',  to: 'users#create' #自分で追加
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
   resources :users
+  resources :account_activations, only: [:edit]
 end
